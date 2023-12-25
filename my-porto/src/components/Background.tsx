@@ -33,7 +33,7 @@ export default function Page() {
             random: false,
           },
           size: {
-            value: 4,
+            value: 8,
             random: true,
           },
           line_linked: {

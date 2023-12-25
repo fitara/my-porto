@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Background from "../components/Background";
 import Typewriter from "typewriter-effect";
+import { motion, useIsPresent } from "framer-motion";
 
 export default function LandingPage() {
   const [input, setInput] = useState<string>("");
   const navigate = useNavigate();
+  const isPresent = useIsPresent();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -70,6 +72,13 @@ export default function LandingPage() {
           </button>
         </div>
       </div>
+      <motion.div
+            initial={{ scaleX: 1 }}
+            animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+            exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+            style={{ originX: isPresent ? 0 : 1 }}
+            className="privacy-screen"
+      />
     </>
   );
 }

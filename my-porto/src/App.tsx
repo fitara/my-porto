@@ -1,14 +1,19 @@
-import { RouterProvider } from "react-router-dom"
-import router from "./router/index"
-import './App.css'
+// App.tsx
+import React from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { useLocation, useRoutes  } from 'react-router-dom';
+import routes from './router';
+import './App.css';
 
-function App() {
+export default function App() {
+  const element = useRoutes(routes);
+  const location = useLocation();
+
+  if (!element) return null;
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+    <AnimatePresence mode="wait" initial={false}>
+      {React.cloneElement(element, { key: location.pathname })}
+    </AnimatePresence>
+  );
 }
-
-export default App
