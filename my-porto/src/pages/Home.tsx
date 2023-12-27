@@ -1,71 +1,84 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
-import profilePict from "../assets/picture.png";
-import blobshape from "blobshape";
-
-function getRandomPath() {
-  return blobshape({
-    growth: 8,
-    edges: 18,
-  }).path;
-}
-
-function Blob(props: any) {
-  const [flip, set] = useState(false);
-
-  const { path } = useSpring({
-    to: { path: getRandomPath() },
-    from: { path: getRandomPath() },
-    reverse: flip,
-    config: {
-      duration: props.image ? 9000 : 6000,
-    },
-    onRest: () => { set(!flip)}
-  });
-
-  return (
-    <svg viewBox="0 0 500 500" width="40%" style={props.style} preserveAspectRatio="xMidYMid meet">
-      {!props.image && <animated.path fill={props.color} d={path} />}
-
-      {props.image && (
-        <>
-          <defs>
-            <clipPath id="clipPath">
-              <animated.path fill={props.color} d={path} />
-            </clipPath>
-          </defs>
-          <image
-            width="70%"
-            clipPath="url(#clipPath)"
-            xlinkHref={profilePict}
-            preserveAspectRatio="xMidYMid slice"
-          />
-        </>
-      )}
-    </svg>
-  );
-}
+import React, { useRef, useState } from "react";
+import { FaInfoCircle, FaFileDownload } from "react-icons/fa";
+import { useUser } from "../contexts/UserContext";
+import BlobEffect from "../utils/BlobEffect";
+import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  createSpringAnimation,
+  AnimationPositions
+} from "../utils/MagnetEffect";
 
 const Home: React.FC = () => {
+  const { userName } = useUser();
+
+  const introductionRef = useRef<HTMLDivElement>(null);
+  const aboutButtonRef = useRef<HTMLButtonElement>(null);
+  const resumeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const [positions, setPositions] = useState<AnimationPositions>({
+    introduction: { x: 0, y: 0 },
+    about: { x: 0, y: 0 },
+    resume: { x: 0, y: 0 },
+  });
+
+  const { handleMouse: handleMouseAbout, reset: resetAbout } =
+    createSpringAnimation(aboutButtonRef, "about");
+
+  const { handleMouse: handleMouseResume, reset: resetResume } =
+    createSpringAnimation(resumeButtonRef, "resume");
+
   return (
-    <>
-      <div className="blob">
-        <div style={{ position: "relative" }}>
-          <Blob color="#000000" style={{ opacity: 0.2, position: "absolute", top: "15%", left: "5%" }} />
-          <Blob color="#000000" style={{ opacity: 0.4, position: "absolute", top: "15%", left: "5%" }} />
-          <Blob image style={{ width: "40%", opacity: 0.8, position: "absolute", top: 20, left: 80, overflow: "hidden" }} />
+    <section className="home-container">
+      <div className="blob-container">
+        <BlobEffect className="blob blob1" />
+        <BlobEffect className="blob blob2" />
+        <BlobEffect image className="blob blob-image" />
+      </div>
+      <div className="description-container">
+        <h1 className="greeting-text">Hi, {userName}!</h1>
+        <div className="introduction home" ref={introductionRef}>
+          <h2>I'm Fitra</h2>
+          <Typewriter
+            options={{
+              strings: ["Fullstack Developer", "Frontend Developer"],
+              autoStart: true,
+              loop: true,
+              delay: 50,
+            }}
+          />
+        </div>
+        <h3 className="description-text">
+          Specializing in frontend development with a robust fullstack foundation, I meticulously craft seamless and
+          visually appealing user interfaces, ensuring exceptional digital experiences.
+        </h3>
+        <div className="button-container">
+          <Link to="/about">
+            <motion.button
+              ref={aboutButtonRef}
+              className="button"
+              onMouseMove={(e) => setPositions((prev) => ({ ...prev, ...handleMouseAbout(e) }))}
+              onMouseLeave={() => setPositions(resetAbout())}
+              animate={positions.about}
+            >
+              <FaInfoCircle />
+              About
+            </motion.button>
+          </Link>
+          <motion.button
+            ref={resumeButtonRef}
+            className="button"
+            onMouseMove={(e) => setPositions((prev) => ({ ...prev, ...handleMouseResume(e) }))}
+            onMouseLeave={() => setPositions(resetResume())}
+            animate={positions.resume}
+          >
+            <FaFileDownload />
+            Resume
+          </motion.button>
         </div>
       </div>
-      <div style={{ display: "flex" }}>
-        <p>
-          I'm a Fullstack and Frontend developer passionate about creating web applications.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </p>
-      </div>
-    </>
+    </section>
   );
 };
 

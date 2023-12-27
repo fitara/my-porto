@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, useIsPresent } from "framer-motion";
+import { FaHome, FaInfoCircle, FaCode, FaGamepad } from "react-icons/fa"; // Import ikon yang diinginkan
 
 const tabs = [
-  { path: "/home", label: "Home" },
-  { path: "/about", label: "About" },
-  { path: "/projects", label: "Projects" },
-  { path: "/playground", label: "Playground" },
+  { path: "/home", label: "Home", icon: <FaHome /> },
+  { path: "/about", label: "About", icon: <FaInfoCircle /> },
+  { path: "/projects", label: "Projects", icon: <FaCode /> },
+  { path: "/playground", label: "Playground", icon: <FaGamepad /> },
 ];
 
 function Header() {
@@ -31,10 +32,13 @@ function Header() {
                 <motion.span
                   layoutId="bubble"
                   className="tab-bubble"
-                  transition={{ type: "spring", bounce: 0.4, duration: 1 }}
+                  transition={{ type: "spring", bounce: 0.5, duration: 1 }}
                 />
               )}
-              {tab.label}
+              <div className="icon-text">
+                {tab.icon}
+                {tab.label}
+              </div>
             </Link>
           ))}
         </div>

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, useIsPresent } from "framer-motion";
+import { useUser } from "../contexts/UserContext";
 import Background from "../components/Background";
 import Typewriter from "typewriter-effect";
-import { motion, useIsPresent } from "framer-motion";
 
 export default function LandingPage() {
   const [input, setInput] = useState<string>("");
-  const navigate = useNavigate();
   const isPresent = useIsPresent();
+  const navigate = useNavigate();
+  const { updateUser } = useUser();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -22,6 +24,7 @@ export default function LandingPage() {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && input) {
+      updateUser(input);
       navigate("/home");
     }
   };
@@ -30,8 +33,8 @@ export default function LandingPage() {
     <>
       <Background />
       <div className='lp-container'>
-        <div className='occupation-wrapper'>
-          <div className='occupation'>
+        <div className='introduction-wrapper'>
+          <div className='introduction'>
             <h2>Hello, I'm Fitra</h2>
             <Typewriter
               options={{
@@ -52,8 +55,8 @@ export default function LandingPage() {
             Before we begin, please let me know your name.
           </h4>
           <input
-            type='text'
             id='name'
+            type='text'
             placeholder='Insert your name'
             spellCheck='false'
             autoComplete='false'
