@@ -1,7 +1,7 @@
 /* Blob.tsx */
 import { useState } from "react";
 import { useSpring, animated } from "react-spring";
-import profilePict from "../assets/profile-pict.jpg";
+import profilePict from "../assets/images/profile-pict.jpg";
 import blobshape from "blobshape";
 
 interface BlobProps {

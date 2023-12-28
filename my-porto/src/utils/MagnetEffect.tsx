@@ -1,4 +1,3 @@
-// animationUtils.ts
 import { RefObject } from "react";
 
 export interface AnimationPositions {

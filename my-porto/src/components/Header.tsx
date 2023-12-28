@@ -48,7 +48,14 @@ function Header() {
         animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
         exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn" } }}
         style={{ originX: isPresent ? 0 : 1 }}
-        className="privacy-screen"
+        className="first-screen"
+      />
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut", delay: 0.1 } }}
+        exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn", delay: 0.1 } }}
+        style={{ originX: isPresent ? 0 : 1 }}
+        className="second-screen"
       />
     </>
   );

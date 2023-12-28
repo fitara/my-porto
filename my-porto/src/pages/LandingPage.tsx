@@ -4,12 +4,13 @@ import { motion, useIsPresent } from "framer-motion";
 import { useUser } from "../contexts/UserContext";
 import Background from "../components/Background";
 import Typewriter from "typewriter-effect";
+import Rubber from "../utils/RubberEffect";
 
 export default function LandingPage() {
   const [input, setInput] = useState<string>("");
   const isPresent = useIsPresent();
-  const navigate = useNavigate();
   const { updateUser } = useUser();
+  const navigate = useNavigate();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -35,7 +36,10 @@ export default function LandingPage() {
       <div className='lp-container'>
         <div className='introduction-wrapper'>
           <div className='introduction'>
-            <h2>Hello, I'm Fitra</h2>
+            <h2>
+              Hello, I'm&nbsp;
+              <Rubber text="Fitra" className="dark" />
+            </h2>
             <Typewriter
               options={{
                 strings: ["Fullstack Developer", "Frontend Developer"],
@@ -45,10 +49,13 @@ export default function LandingPage() {
               }}
             />
           </div>
-          <h3 className='short-intro'>
+          <motion.h3
+            whileHover={{scale: 1.05}}
+            className='short-intro'
+          >
             A passionate developer with a background in fullstack development.
             Currently, focused on creating engaging frontend user experiences.
-          </h3>
+          </motion.h3>
         </div>
         <div className='user-wrapper'>
           <h4 className='instruction'>
@@ -75,13 +82,13 @@ export default function LandingPage() {
           </button>
         </div>
       </div>
-        <motion.div
-          initial={{ scaleX: 1 }}
-          animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
-          exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn" } }}
-          style={{ originX: isPresent ? 0 : 1 }}
-          className="privacy-screen"
-        />
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
+        exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn" } }}
+        style={{ originX: isPresent ? 0 : 1 }}
+        className="first-screen"
+      />
     </>
   );
 }
