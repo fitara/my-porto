@@ -1,29 +1,34 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, useIsPresent } from "framer-motion";
 import { useUser } from "../contexts/UserContext";
+import Transitions from "../utils/Transition";
 import Background from "../components/Background";
-import Typewriter from "typewriter-effect";
 import Rubber from "../utils/RubberEffect";
+import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
   const [input, setInput] = useState<string>("");
-  const isPresent = useIsPresent();
   const { updateUser } = useUser();
   const navigate = useNavigate();
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const value = e.target.value;
     const trimmedValue = value.trim();
 
-    if (/^[A-Za-z\s]*[A-Za-z][A-Za-z\s]*$/.test(trimmedValue)) {
-      setInput(trimmedValue);
-    } else {
-      setInput("");
-    }
+    setInput(
+      /^[A-Za-z\s]*[A-Za-z][A-Za-z\s]*$/
+        .test(trimmedValue)
+        ? trimmedValue
+        : ""
+    );
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (e.key === "Enter" && input) {
       updateUser(input);
       navigate("/home");
@@ -65,9 +70,9 @@ export default function LandingPage() {
             id='name'
             type='text'
             placeholder='Insert your name'
-            spellCheck='false'
-            autoComplete='false'
             className='input-name'
+            autoComplete='false'
+            spellCheck='false'
             onChange={handleInput}
             onKeyDown={handleKeyDown}
           />
@@ -82,13 +87,7 @@ export default function LandingPage() {
           </button>
         </div>
       </div>
-      <motion.div
-        initial={{ scaleX: 1 }}
-        animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
-        exit={{ scaleX: 1, transition: { duration: 1, ease: "circIn" } }}
-        style={{ originX: isPresent ? 0 : 1 }}
-        className="first-screen"
-      />
+      <Transitions />
     </>
   );
 }

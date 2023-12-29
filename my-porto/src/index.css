@@ -4,5 +4,17 @@
     text-decoration: none;
     box-sizing: border-box;
     overflow: -moz-hidden-unscrollable;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  */
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./src/assets/font/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }

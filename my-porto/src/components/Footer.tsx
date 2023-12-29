@@ -36,12 +36,15 @@ const Footer: React.FC = () => {
         <Rubber text='Fitra' />
         &nbsp;with a touch of creativity&trade;
       </div>
-      <div className="footer-icon">
+      <div className="footer-icons">
         <motion.div
           ref={githubRef}
           className='footer-icon'
           onMouseMove={(e) =>
-            setPositions((prev) => ({ ...prev, ...handleMouseGithub(e) }))
+            setPositions((prev) => ({
+              ...prev,
+              ...handleMouseGithub(e)
+            }))
           }
           onMouseLeave={() => setPositions(resetGihub())}
           animate={positions.github}
@@ -52,7 +55,10 @@ const Footer: React.FC = () => {
           className='footer-icon'
           ref={linkedInRef}
           onMouseMove={(e) =>
-            setPositions((prev) => ({ ...prev, ...handleMouseLinkedIn(e) }))
+            setPositions((prev) => ({
+              ...prev,
+              ...handleMouseLinkedIn(e)
+            }))
           }
           onMouseLeave={() => setPositions(resetLinkeIn())}
           animate={positions.linkedIn}
@@ -63,7 +69,10 @@ const Footer: React.FC = () => {
           className='footer-icon'
           ref={whatsappRef}
           onMouseMove={(e) =>
-            setPositions((prev) => ({ ...prev, ...handleMouseWhatsapp(e) }))
+            setPositions((prev) => ({
+              ...prev,
+              ...handleMouseWhatsapp(e)
+            }))
           }
           onMouseLeave={() => setPositions(resetWhatsapp())}
           animate={positions.whatsapp}

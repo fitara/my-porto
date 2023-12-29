@@ -1,5 +1,6 @@
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
+import { Reveal } from "../utils/Reveal";
 
 const marquee1Names = [
   "HTML 5",
@@ -39,13 +40,23 @@ const marquee2Names = [
 const Carousel = () => {
   return (
     <div className='carousel-container'>
-      <div className="carousel-title">
-        <h1>Tech Toolkit</h1>
-        <h3>Sculpting digital experiences with a wide-ranging skill set, where code and creativity flow together seamlessly.</h3>
+      <div className='carousel-title'>
+        <div className='title-wrapper'>
+          <Reveal>
+            <h1>Tech Toolkit.</h1>
+          </Reveal>
+          <span className='title-line'></span>
+        </div>
+        <Reveal>
+          <h3>
+            Sculpting digital experiences with a wide-ranging skill set, where
+            code and creativity flow together seamlessly.
+          </h3>
+        </Reveal>
       </div>
       <Marquee
         gradient={true}
-        gradientColor="whitesmoke"
+        gradientColor='whitesmoke'
         pauseOnHover={true}
         speed={100}
       >
@@ -60,7 +71,7 @@ const Carousel = () => {
             <img
               src={`/src/assets/svg/${name}.svg`}
               alt={`svg-${index + 1}`}
-              className="svg-icon"
+              className='svg-icon'
             />
             <motion.div
               className='text-overlay'
@@ -75,9 +86,9 @@ const Carousel = () => {
       </Marquee>
       <Marquee
         gradient={true}
-        gradientColor="whitesmoke"
+        gradientColor='whitesmoke'
         pauseOnHover={true}
-        direction="right"
+        direction='right'
         speed={100}
       >
         {marquee2Names.map((name, index) => (
@@ -91,11 +102,9 @@ const Carousel = () => {
             <img
               src={`/src/assets/svg/${name}.svg`}
               alt={`svg-${index + 1}`}
-              className="svg-icon"
+              className='svg-icon'
             />
-            <p className='text-overlay'>
-              {name}
-            </p>
+            <p className='text-overlay'>{name}</p>
           </motion.div>
         ))}
       </Marquee>

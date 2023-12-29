@@ -1,4 +1,3 @@
-// Rubber.tsx
 import React from "react";
 import { motion, TargetAndTransition } from "framer-motion";
 

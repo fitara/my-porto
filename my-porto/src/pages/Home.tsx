@@ -10,6 +10,7 @@ import {
   createSpringAnimation,
   AnimationPositions,
 } from "../utils/MagnetEffect";
+import { Reveal } from "../utils/Reveal";
 
 const Home: React.FC = () => {
   const { userName } = useUser();
@@ -39,33 +40,47 @@ const Home: React.FC = () => {
         <BlobEffect image className='blob blob-image' />
       </div>
       <div className='description-container'>
-        <h1 className='greeting-text'>Hi, {userName}!</h1>
+        <Reveal>
+          <h1 className='greeting-text'>Hi, {userName}!</h1>  
+        </Reveal>
         <div className='introduction home'>
-          <h2>
-            I'm&nbsp;
-            <Rubber text='Fitra' />
-          </h2>
-          <Typewriter
-            options={{
-              strings: ["Fullstack Developer", "Frontend Developer"],
-              autoStart: true,
-              loop: true,
-              delay: 50,
-            }}
-          />
+          <Reveal>
+            <h2>
+              I'm&nbsp;
+              <Rubber text='Fitra' />
+            </h2>
+          </Reveal>
+          <Reveal>
+            <Typewriter
+              options={{
+                strings: ["Fullstack Developer", "Frontend Developer"],
+                autoStart: true,
+                loop: true,
+                delay: 50,
+              }}
+            />
+          </Reveal>
         </div>
-        <motion.h3 whileHover={{ scale: 1.05 }} className='description-text'>
-          Specializing in frontend development with a robust fullstack
-          foundation, I meticulously craft seamless and visually appealing user
-          interfaces, ensuring exceptional digital experiences.
-        </motion.h3>
+        <Reveal>
+          <motion.h3
+            whileHover={{ scale: 1.05 }}
+            className='description-text'
+          >
+            Specializing in frontend development with a robust fullstack
+            foundation, I meticulously craft seamless and visually appealing user
+            interfaces, ensuring exceptional digital experiences.
+          </motion.h3>
+        </Reveal>
         <div className='button-container'>
           <Link to='/about'>
             <motion.button
               ref={aboutButtonRef}
               className='button'
               onMouseMove={(e) =>
-                setPositions((prev) => ({ ...prev, ...handleMouseAbout(e) }))
+                setPositions((prev) => ({
+                  ...prev,
+                  ...handleMouseAbout(e)
+                }))
               }
               onMouseLeave={() => setPositions(resetAbout())}
               animate={positions.about}
@@ -78,7 +93,10 @@ const Home: React.FC = () => {
             ref={resumeButtonRef}
             className='button'
             onMouseMove={(e) =>
-              setPositions((prev) => ({ ...prev, ...handleMouseResume(e) }))
+              setPositions((prev) => ({
+                ...prev,
+                ...handleMouseResume(e)
+              }))
             }
             onMouseLeave={() => setPositions(resetResume())}
             animate={positions.resume}

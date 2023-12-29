@@ -13,29 +13,15 @@ export default function Page() {
       id='tsparticles'
       init={particlesInit}
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: -1,
-        },
+        fullScreen: { enable: true, zIndex: -1 },
         particles: {
           number: {
             value: 50,
-            density: {
-              enable: true,
-              value_area: 800,
-            },
+            density: { enable: true, value_area: 800 },
           },
-          color: {
-            value: "#87CEFA",
-          },
-          opacity: {
-            value: 0.8,
-            random: false,
-          },
-          size: {
-            value: 8,
-            random: true,
-          },
+          color: { value: "#87CEFA" },
+          opacity: { value: 0.8, random: false },
+          size: { value: 8, random: true },
           line_linked: {
             enable: true,
             distance: 100,
@@ -54,14 +40,8 @@ export default function Page() {
         interactivity: {
           detect_on: "canvas",
           events: {
-            onhover: {
-              enable: true,
-              mode: "bubble",
-            },
-            onclick: {
-              enable: true,
-              mode: "repulse",
-            },
+            onhover: { enable: true, mode: "bubble" },
+            onclick: { enable: true, mode: "repulse" },
             resize: true,
           },
           modes: {
@@ -72,21 +52,12 @@ export default function Page() {
               opacity: 1,
               speed: 3,
             },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
-            push: {
-              particles_nb: 4,
-            },
-            remove: {
-              particles_nb: 2,
-            },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 }
           },
         },
-        background: {
-          color: "#F5F5F5",
-        },
+        background: { color: "#F5F5F5" },
         retina_detect: false,
       }}
     />

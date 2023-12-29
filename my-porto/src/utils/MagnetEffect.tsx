@@ -13,7 +13,12 @@ export const createSpringAnimation = (
   ): AnimationPositions | null => {
     if (ref.current) {
       const { clientX, clientY } = e;
-      const { height, width, left, top } = ref.current.getBoundingClientRect();
+      const {
+        height,
+        width,
+        left,
+        top
+      } = ref.current.getBoundingClientRect();
       const middleX = clientX - (left + width / 2);
       const middleY = clientY - (top + height / 2);
 
@@ -22,10 +27,9 @@ export const createSpringAnimation = (
     return null;
   };
 
-  const reset = (): AnimationPositions => ({ [icon]: { x: 0, y: 0 } });
+  const reset = (): AnimationPositions => ({
+    [icon]: { x: 0, y: 0 }
+  });
 
-  return {
-    handleMouse,
-    reset,
-  };
+  return { handleMouse, reset };
 };
