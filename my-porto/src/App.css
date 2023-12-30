@@ -286,10 +286,10 @@
 .blob-wrapper {
   flex: 1;
   position: relative;
-  max-width: 40%;
+  min-width: 40%;
 }
 
-.blob { position: absolute; width: 100%; }
+.blob { position: absolute; min-width: 100%; }
 
 .blob1 {
   opacity: 0.2;
@@ -307,7 +307,7 @@
   position: absolute;
   top: 2em;
   left: 4em;
-  width: 90%;
+  min-width: 90%;
 }
 
 .description-wrapper {

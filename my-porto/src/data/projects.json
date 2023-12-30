@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Dota 2 Clone",
+    "description": "The goal of this project is to replicate the appearance of the official Dota 2 landing page...",
+    "image": "src/assets/images/dota-2.png",
+    "techStack": ["HTML", "CSS", "Javascript"]
+  },
+  {
+    "name": "Tanameracoffee.com Clone",
+    "description": "Comprehensive project aims to replicate the Tanamera Coffee website while incorporating...",
+    "image": "src/assets/images/tanamera.png",
+    "techStack": ["React", "Tailwind", "NodeJs", "Express", "PostgreSQL"]
+  },
+  {
+    "name": "Tech News",
+    "description": "Tech News is a web application that allows users to explore a list of articles fetched...",
+    "image": "src/assets/images/tech-news.png",
+    "techStack": ["React", "Typescript", "CSS"]
+  },
+  {
+    "name": "Project Finder",
+    "description": "GitHub Project Finder is a web application designed to simplify the process of exploring GitHub...",
+    "image": "src/assets/images/project-finder.png",
+    "techStack": ["React", "Typescript", "CSS"]
+  },
+  {
+    "name": "Little Lemon",
+    "description": "The Reservation App is a cutting-edge React JS application designed to provide users with...",
+    "image": "src/assets/images/little-lemon.png",
+    "techStack": ["React", "CSS", "Jest"]
+  }
+]
