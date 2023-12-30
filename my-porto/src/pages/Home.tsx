@@ -34,12 +34,12 @@ const Home: React.FC = () => {
 
   return (
     <section className='home-container'>
-      <div className='blob-container'>
+      <div className='blob-wrapper'>
         <BlobEffect className='blob blob1' />
         <BlobEffect className='blob blob2' />
         <BlobEffect image className='blob blob-image' />
       </div>
-      <div className='description-container'>
+      <div className='description-wrapper'>
         <Reveal>
           <h1 className='greeting-text'>Hi, {userName}!</h1>  
         </Reveal>
@@ -71,7 +71,7 @@ const Home: React.FC = () => {
             interfaces, ensuring exceptional digital experiences.
           </motion.h3>
         </Reveal>
-        <div className='button-container'>
+        <div className='button-wrapper'>
           <Link to='/about'>
             <motion.button
               ref={aboutButtonRef}

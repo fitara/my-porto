@@ -63,7 +63,7 @@ const Carousel = () => {
         {marquee1Names.map((name, index) => (
           <motion.div
             key={index}
-            className='image-container'
+            className='image-wrapper'
             whileHover={{ scale: 1.2 }}
             initial='hidden'
             animate='visible'
@@ -94,17 +94,24 @@ const Carousel = () => {
         {marquee2Names.map((name, index) => (
           <motion.div
             key={index}
-            className='image-container'
+            className='image-wrapper'
             whileHover={{ scale: 1.2 }}
             initial='hidden'
-            animate='hidden'
+            animate='visible'
           >
             <img
               src={`/src/assets/svg/${name}.svg`}
               alt={`svg-${index + 1}`}
               className='svg-icon'
             />
-            <p className='text-overlay'>{name}</p>
+            <motion.div
+              className='text-overlay'
+              initial='hidden'
+              animate='visible'
+              transition={{ duration: 0.3 }}
+            >
+              {name}
+            </motion.div>
           </motion.div>
         ))}
       </Marquee>

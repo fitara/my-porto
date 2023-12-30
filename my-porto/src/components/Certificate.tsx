@@ -42,10 +42,14 @@ const Certificate: React.FC = () => {
             </div>
             <motion.div className='card-info'>
               <div className='card-title'>
-                <h3>{certificate.company}</h3>
+                <Reveal>
+                  <h3>{certificate.company}</h3>
+                </Reveal>
                 <span className='card-line'></span>
               </div>
-              <p>{certificate.name}</p>
+              <Reveal>
+                <p>{certificate.name}</p>
+              </Reveal>
             </motion.div>
           </motion.a>
         ))}

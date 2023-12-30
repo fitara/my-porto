@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Carousel from "../components/Carousel";
 import Certificate from "../components/Certificate";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaArrowRight,
   FaGithub,
@@ -36,13 +36,6 @@ const About: React.FC = () => {
 
   const { handleMouse: handleMouseWhatsapp, reset: resetWhatsapp } =
     createSpringAnimation(whatsappRef, "whatsapp");
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 50,
-    restDelta: 0.001,
-  });
 
   return (
     <section className='about-container'>
@@ -149,8 +142,7 @@ const About: React.FC = () => {
       <Carousel />
       
       <Certificate />
-      
-      <motion.div className='progress-bar' style={{ scaleX }} />
+
     </section>
   );
 };
