@@ -2,7 +2,7 @@
   {
     "name": "Dota 2 Clone",
     "description": "Recreating Dota 2's landing page with HTML, CSS, and JavaScript for an immersive, visually appealing, and responsive user experience. Showcase game details, hero info, and tournament updates while ensuring optimal display across various devices.",
-    "image": "src/assets/images/dota-2.png",
+    "image": "/images/dota-2.png",
     "techStack": ["HTML", "CSS", "Javascript"],
     "githubLink": "https://github.com/fitara/dota-lp",
     "demoLink": "https://fitara-dota2.netlify.app"
@@ -10,7 +10,7 @@
   {
     "name": "Tanameracoffee.com Clone",
     "description": "Comprehensive project aims to replicate the Tanamera Coffee website while incorporating a full stack approach, including React for the front-end, Inline Tailwind CSS for styling, PostgreSQL for the database, Express.js for the server, and Redux for state management.",
-    "image": "src/assets/images/tanamera.png",
+    "image": "/images/tanamera.png",
     "techStack": ["React", "Tailwind", "NodeJs", "Express", "PostgreSQL"],
     "githubLink": "https://github.com/fitara/tanameracoffee.com_clone",
     "demoLink": ""
@@ -18,7 +18,7 @@
   {
     "name": "Tech News",
     "description": "Tech News is a web application that allows users to explore a list of articles fetched from NewsAPI and view the details of each article. This app is built using React and TypeScript and styled with Ant Design, providing a user-friendly and customizable interface for reading news.",
-    "image": "src/assets/images/tech-news.png",
+    "image": "/images/tech-news.png",
     "techStack": ["React", "Typescript", "CSS"],
     "githubLink": "https://github.com/fitara/eigen-news",
     "demoLink": ""
@@ -26,7 +26,7 @@
   {
     "name": "Project Finder",
     "description": "GitHub Project Finder is a web application designed to simplify the process of exploring GitHub users and their projects. With this user-friendly platform, you can effortlessly search for a GitHub user and access their projects, making it an ideal tool for both collaboration and project discovery.",
-    "image": "src/assets/images/project-finder.png",
+    "image": "/images/project-finder.png",
     "techStack": ["React", "Typescript", "CSS"],
     "githubLink": "https://github.com/fitara/project-finder",
     "demoLink": ""
@@ -34,7 +34,7 @@
   {
     "name": "Little Lemon",
     "description": "Developed a clean-coded, responsive UI for Little Lemon's table booking feature using React JS. The modern design ensures a smooth booking experience across devices, following best coding practices for maintainability.",
-    "image": "src/assets/images/little-lemon.png",
+    "image": "/images/little-lemon.png",
     "techStack": ["React", "CSS", "Jest"],
     "githubLink": "https://github.com/fitara/meta-capstone",
     "demoLink": ""

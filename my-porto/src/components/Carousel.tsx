@@ -69,7 +69,7 @@ function Carousel() {
             animate='visible'
           >
             <img
-              src={`/src/assets/svg/${name}.svg`}
+              src={`/svg/${name}.svg`}
               alt={`svg-${index + 1}`}
               className='svg-icon'
             />
@@ -100,7 +100,7 @@ function Carousel() {
             animate='visible'
           >
             <img
-              src={`/src/assets/svg/${name}.svg`}
+              src={`/svg/${name}.svg`}
               alt={`svg-${index + 1}`}
               className='svg-icon'
             />

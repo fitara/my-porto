@@ -218,6 +218,7 @@
   align-items: center;
   padding: 0.25em 4em;
   width: 100vw;
+  height: 10vh;
   z-index: 3;
 }
 

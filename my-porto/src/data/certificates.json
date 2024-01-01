@@ -2,67 +2,67 @@
   {
     "name": "Fullstack Javascript Immersive",
     "company": "Hacktiv8",
-    "imageUrl": "src/assets/images/hacktiv8.png",
+    "imageUrl": "/images/hacktiv8.png",
     "url": "https://drive.google.com/file/d/1XDvplp6IOSzMO0przXce2N_vhhD-ouxs/view?usp=drive_link"
   },
   {
     "name": "Front-end Developer Capstone",
     "company": "Coursera",
-    "imageUrl": "src/assets/images/coursera-meta-FV2ZLQM66MRT.png",
+    "imageUrl": "/images/coursera-meta-FV2ZLQM66MRT.png",
     "url": "https://www.coursera.org/account/accomplishments/verify/FV2ZLQM66MRT"
   },
   {
     "name": "Front-end Software Engineering",
     "company": "Skyscanner",
-    "imageUrl": "src/assets/images/skyscanner-fe.png",
+    "imageUrl": "/images/skyscanner-fe.png",
     "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Skyscanner/km4rw7dihDr3etqom_Skyscanner_gyBqiTFyanmPh54xY_1701952260579_completion_certificate.pdf"
   },
   {
     "name": "Software Engineering",
     "company": "Skyscanner",
-    "imageUrl": "src/assets/images/skyscanner.png",
+    "imageUrl": "/images/skyscanner.png",
     "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Skyscanner/p3xGFkpdot5H8NBih_Skyscanner_gyBqiTFyanmPh54xY_1702735410391_completion_certificate.pdf"
   },
   {
     "name": "Advance Software Engineering",
     "company": "PepsiCo",
-    "imageUrl": "src/assets/images/pepsiCo.png",
+    "imageUrl": "/images/pepsiCo.png",
     "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/PepsiCo/z8Pk6XzAgvtDYHJsg_PepsiCo_gyBqiTFyanmPh54xY_1702475729128_completion_certificate.pdfertif2"
   },
   {
     "name": "Software Engineering",
     "company": "Blackbird",
-    "imageUrl": "src/assets/images/blackbird-aus.png",
+    "imageUrl": "/images/blackbird-aus.png",
     "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Blackbird/8XSySTLv68WYeFhke_Blackbird%20Australia_gyBqiTFyanmPh54xY_1702725475157_completion_certificate.pdf"
   },
   {
     "name": "Software Engineering",
     "company": "Goldman Sachs",
-    "imageUrl": "src/assets/images/goldman-sachs.png",
+    "imageUrl": "/images/goldman-sachs.png",
     "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Goldman%20Sachs/NPdeQ43o8P9HJmJzg_Goldman%20Sachs_gyBqiTFyanmPh54xY_1702543399355_completion_certificate.pdf"
   },
   {
     "name": "Belajar Membuat Aplikasi Web dengan React",
     "company": "Dicoding",
-    "imageUrl": "src/assets/images/dicoding-NVP779GLVPR0.png",
+    "imageUrl": "/images/dicoding-NVP779GLVPR0.png",
     "url": "https://www.dicoding.com/certificates/NVP779GLVPR0"
   },
   {
     "name": "Belajar Membuat Front-end Web untuk Pemula",
     "company": "Dicoding",
-    "imageUrl": "src/assets/images/dicoding-JLX12GO9NZ72.png",
+    "imageUrl": "/images/dicoding-JLX12GO9NZ72.png",
     "url": "https://www.dicoding.com/certificates/JLX12GO9NZ72"
   },
   {
     "name": "Belajar Dasar Pemrograman JavaScript",
     "company": "Dicoding",
-    "imageUrl": "src/assets/images/dicoding-6RPN45044X2M.png",
+    "imageUrl": "/images/dicoding-6RPN45044X2M.png",
     "url": "https://www.dicoding.com/certificates/6RPN45044X2M"
   },
   {
     "name": "Belajar Dasar Pemrograman Web",
     "company": "Dicoding",
-    "imageUrl": "src/assets/images/dicoding-2VX36RDKJXYQ.png",
+    "imageUrl": "/images/dicoding-2VX36RDKJXYQ.png",
     "url": "https://www.dicoding.com/certificates/2VX36RDKJXYQ"
   }
 ]
