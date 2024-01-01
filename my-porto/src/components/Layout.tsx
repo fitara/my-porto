@@ -1,33 +1,34 @@
-import React, { ReactNode } from "react";
-import { Outlet } from "react-router-dom";
-import Background from "./Background";
 import Header from "./Header";
 import Footer from "./Footer";
-import { motion, useScroll, useSpring } from "framer-motion";
+import Background from "./Background";
+import { Outlet } from "react-router-dom";
+import {
+  motion,
+  useScroll,
+  useSpring
+} from "framer-motion";
 
-interface LayoutProps {
-  children?: ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = () => {
+function Layout() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
-    damping: 50,
-    restDelta: 0.001,
+    damping: 100,
+    restDelta: 0.1,
   });
 
   return (
     <div className="layout-container">
       <Header />
-        <motion.div className='progress-bar' style={{ scaleX }} />
-        <div className="main-content">
-          <Outlet />
-          <Background />
-        </div>
+      <motion.div
+        className='progress-bar'
+        style={{ scaleX }} />
+      <div className="main-content">
+        <Outlet />
+        <Background />
+      </div>
       <Footer />
     </div>
   );
-};
+}
 
 export default Layout;

@@ -1,18 +1,21 @@
-import React, { useRef, useState } from "react";
-import { FaInfoCircle, FaFileDownload } from "react-icons/fa";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
-import BlobEffect from "../utils/BlobEffect";
+import { Reveal } from "../utils/Reveal";
 import Rubber from "../utils/RubberEffect";
 import Typewriter from "typewriter-effect";
-import { Link } from "react-router-dom";
+import BlobEffect from "../utils/BlobEffect";
 import { motion } from "framer-motion";
+import {
+  FaInfoCircle,
+  FaFileDownload
+} from "react-icons/fa";
 import {
   createSpringAnimation,
   AnimationPositions,
 } from "../utils/MagnetEffect";
-import { Reveal } from "../utils/Reveal";
 
-const Home: React.FC = () => {
+function Home() {
   const { userName } = useUser();
 
   const aboutButtonRef = useRef<HTMLButtonElement>(null);
@@ -31,6 +34,12 @@ const Home: React.FC = () => {
 
   const { handleMouse: handleMouseResume, reset: resetResume } =
     createSpringAnimation(resumeButtonRef, "resume");
+  
+  const openLink = () => {
+    const gDriveLink =
+      "https://drive.google.com/file/d/1fJriFWmGTArHrGlKkj6rssU1I4rY_fCz/view";
+    window.open(gDriveLink, "_blank");
+  };
 
   return (
     <section className='home-container'>
@@ -99,6 +108,7 @@ const Home: React.FC = () => {
               }))
             }
             onMouseLeave={() => setPositions(resetResume())}
+            onClick={openLink}
             animate={positions.resume}
           >
             <FaFileDownload />
@@ -108,6 +118,6 @@ const Home: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Home;

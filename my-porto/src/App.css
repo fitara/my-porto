@@ -187,7 +187,7 @@
 .first-screen,
 .second-screen,
 .third-screen {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -286,10 +286,10 @@
 .blob-wrapper {
   flex: 1;
   position: relative;
-  min-width: 40%;
+  width: 40%;
 }
 
-.blob { position: absolute; min-width: 100%; }
+.blob { position: absolute; width: 100%; }
 
 .blob1 {
   opacity: 0.2;
@@ -307,7 +307,7 @@
   position: absolute;
   top: 2em;
   left: 4em;
-  min-width: 90%;
+  width: 90%;
 }
 
 .description-wrapper {
@@ -444,16 +444,17 @@
 }
 
 .text-overlay {
+  display: inline-block;
   position: relative;
+  font-size: 0.75em;
   text-align: center;
   transform: translateY(0);
   transition: opacity 1s, transform 1s;
   color: var(--secondary-text-color);
-  border-radius: 2em;
-  display: inline-block;
-  padding: 0.15em 0.5em;
+  border-radius: 1em;
   width: fit-content;
-  margin: 0 auto;
+  padding: 0em 0.5em;
+  margin: auto;
   opacity: 0;
 }
 
@@ -634,6 +635,7 @@
   content: "";
 }
 
+.unavailable-container,
 .project-container {
   display: flex;
   flex-direction: column;
@@ -643,10 +645,15 @@
   padding: 6em 8em;
 }
 
+.unavailable-container h1{
+  font-size: 2em;
+}
+
 .project-container h1 {
   font-size: 3em;
 }
 
+.unavailable-container h3,
 .project-container h3 {
   color: var(--background-color);
   margin-bottom: 1em;
@@ -665,6 +672,7 @@
   display: inline-flex;
   justify-content: flex-end;
   background-color: rgba(75, 75, 75, 0.4);
+  border-radius: 2em;
   padding: 2em;
   width: 45vw;
 }
@@ -686,6 +694,10 @@
 
 .project-description {
   display: flex;
+  text-align: right;
+  font-size: 1.15vw;
+  margin-right: 4em;
+  align-items: flex-end;
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -693,21 +705,19 @@
   bottom: 0;
   z-index: 1;
   width: 40vw;
-  text-align: right;
-  font-size: 1.15vw;
-  padding: 0.5em 0;
-  align-items: flex-end;
 }
 
 .project-card.odd .project-description {
   align-items: flex-start;
   text-align: left;
+  margin-left: 4em;
   left: 0;
 }
 
 .project-description h2 {
   font-size: 2vw;
   color: var(--primary-text-color);
+  margin-bottom: 0.5em;
 }
 
 .project-detail {
@@ -720,6 +730,7 @@
 .project-detail p {
   background-color: var(--primary-color);
   color: var(--secondary-text-color);
+  border-radius: 1em;
   padding: 1em 1.5em;
 }
 
@@ -737,6 +748,7 @@
 
 .tech-stack-item {
   font-size: 1vw;
+  margin-top: 0.5em;
   padding: 0.25em 1em;
   background-color: var(--secondary-color);
   color: var(--secondary-text-color);
@@ -744,11 +756,13 @@
 
 .project-link {
   display: flex;
-  margin-top: 0.5em;
-  color: var(--primary-text-color);
   font-size: 1.25em;
   gap: 0.5em;
-  padding: 0;
+}
+
+.project-link a {
+  margin-top: 0.5em;
+  color: var(--primary-text-color);
 }
 
 .project-card.odd .project-link {

@@ -1,10 +1,10 @@
-import React from "react";
+import projects from "../data/projects.json"
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { Reveal } from "../utils/Reveal";
 import { motion } from "framer-motion";
-import projects from "../data/projects.json"
+import { Link } from "react-router-dom";
 
-const Project: React.FC = () => {
+function Project() {
   return (
     <div className="project-container">
       <h1>My Code Canvas</h1>
@@ -25,25 +25,42 @@ const Project: React.FC = () => {
             />
           </div>
           <div className="project-description">
-            <Reveal key={`reveal-title-${index}`}>
+            <Reveal key={`project-title-${index}`}>
               <h2>{project.name}.</h2>
             </Reveal>
             <div className="project-detail">
-              <Reveal key={`reveal-description-${index}`}>
+              <Reveal key={`project-description-${index}`}>
                 <motion.p whileHover={{ scale: 1.05 }}>
                   {project.description}
                 </motion.p>
               </Reveal>
               <div className="tech-stack-wrapper">
                 {project.techStack.map((tech, techIndex) => (
-                  <Reveal key={`reveal-tech-${index}-${techIndex}`}>
+                  <Reveal key={`tech-stack-${index}-${techIndex}`}>
                     <span className="tech-stack-item">{tech}</span>
                   </Reveal>
-                ))}
+                ))} 
               </div>
               <div className="project-link">
-                <FaGithub />
-                <FaExternalLinkAlt />
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <FaGithub />
+                </a>
+                {project.demoLink ? (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaExternalLinkAlt />
+                  </a>
+                ) : (
+                  <Link to="/projects/unavailable">
+                    <FaExternalLinkAlt />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -51,6 +68,6 @@ const Project: React.FC = () => {
       ))}
     </div>
   );
-};
+}
 
 export default Project;

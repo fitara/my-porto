@@ -15,7 +15,7 @@ import {
   AnimationPositions,
 } from "../utils/MagnetEffect";
 
-const About: React.FC = () => {
+function About() {
   const githubRef = useRef<HTMLDivElement>(null);
   const linkedInRef = useRef<HTMLDivElement>(null);
   const whatsappRef = useRef<HTMLDivElement>(null);
@@ -36,6 +36,10 @@ const About: React.FC = () => {
 
   const { handleMouse: handleMouseWhatsapp, reset: resetWhatsapp } =
     createSpringAnimation(whatsappRef, "whatsapp");
+  
+  const openLink = (url: string) => {
+    window.open(url, '_blank');
+  };
 
   return (
     <section className='about-container'>
@@ -101,6 +105,7 @@ const About: React.FC = () => {
                     }))
                   }
                   onMouseLeave={() => setPositions(resetGihub())}
+                  onClick={() => openLink("https://github.com/fitara")}
                   animate={positions.github}
                 >
                   <FaGithub />
@@ -115,6 +120,7 @@ const About: React.FC = () => {
                     }))
                   }
                   onMouseLeave={() => setPositions(resetLinkeIn())}
+                  onClick={() => openLink("https://www.linkedin.com/in/fitra11/")}
                   animate={positions.linkedIn}
                 >
                   <FaLinkedin />
@@ -129,6 +135,7 @@ const About: React.FC = () => {
                     }))
                   }
                   onMouseLeave={() => setPositions(resetWhatsapp())}
+                  onClick={() => openLink("https://wa.me/081226336116")}
                   animate={positions.whatsapp}
                 >
                   <FaWhatsapp />
@@ -145,6 +152,6 @@ const About: React.FC = () => {
 
     </section>
   );
-};
+}
 
 export default About;

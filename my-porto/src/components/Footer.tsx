@@ -1,13 +1,13 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Rubber from "../utils/RubberEffect";
 import {
   createSpringAnimation,
-  AnimationPositions,
+  AnimationPositions
 } from "../utils/MagnetEffect";
 
-const Footer: React.FC = () => {
+function Footer() {
   const githubRef = useRef<HTMLDivElement>(null);
   const linkedInRef = useRef<HTMLDivElement>(null);
   const whatsappRef = useRef<HTMLDivElement>(null);
@@ -29,6 +29,10 @@ const Footer: React.FC = () => {
   const { handleMouse: handleMouseWhatsapp, reset: resetWhatsapp } =
     createSpringAnimation(whatsappRef, "whatsapp");
 
+  const openLink = (url: string) => {
+    window.open(url, '_blank');
+  };
+
   return (
     <footer className='footer'>
       <div className='footer-tm'>
@@ -47,6 +51,7 @@ const Footer: React.FC = () => {
             }))
           }
           onMouseLeave={() => setPositions(resetGihub())}
+          onClick={() => openLink("https://github.com/fitara")}
           animate={positions.github}
         >
           <FaGithub />
@@ -61,6 +66,7 @@ const Footer: React.FC = () => {
             }))
           }
           onMouseLeave={() => setPositions(resetLinkeIn())}
+          onClick={() => openLink("https://linkedin.com/in/fitra11/")}
           animate={positions.linkedIn}
         >
           <FaLinkedin />
@@ -75,6 +81,7 @@ const Footer: React.FC = () => {
             }))
           }
           onMouseLeave={() => setPositions(resetWhatsapp())}
+          onClick={() => openLink("https://wa.me/081226336116")}
           animate={positions.whatsapp}
         >
           <FaWhatsapp />
@@ -82,6 +89,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

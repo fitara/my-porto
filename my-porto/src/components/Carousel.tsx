@@ -37,7 +37,7 @@ const marquee2Names = [
   "Postman",
 ];
 
-const Carousel = () => {
+function Carousel() {
   return (
     <div className='carousel-container'>
       <div className='carousel-title'>
@@ -73,14 +73,14 @@ const Carousel = () => {
               alt={`svg-${index + 1}`}
               className='svg-icon'
             />
-            <motion.div
+            <motion.p
               className='text-overlay'
               initial='hidden'
               animate='visible'
               transition={{ duration: 0.3 }}
             >
               {name}
-            </motion.div>
+            </motion.p>
           </motion.div>
         ))}
       </Marquee>
@@ -117,6 +117,6 @@ const Carousel = () => {
       </Marquee>
     </div>
   );
-};
+}
 
 export default Carousel;

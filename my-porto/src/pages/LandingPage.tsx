@@ -7,7 +7,7 @@ import Rubber from "../utils/RubberEffect";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 
-export default function LandingPage() {
+function LandingPage() {
   const [input, setInput] = useState<string>("");
   const { updateUser } = useUser();
   const navigate = useNavigate();
@@ -91,3 +91,5 @@ export default function LandingPage() {
     </>
   );
 }
+
+export default LandingPage;

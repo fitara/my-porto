@@ -1,9 +1,8 @@
-import React from "react";
 import certificates from "../data/certificates.json";
 import { motion } from "framer-motion";
 import { Reveal } from "../utils/Reveal";
 
-const Certificate: React.FC = () => {
+function Certificate() {
   return (
     <div className='certificate-container'>
       <div className='certificate-title'>
@@ -56,6 +55,6 @@ const Certificate: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Certificate;

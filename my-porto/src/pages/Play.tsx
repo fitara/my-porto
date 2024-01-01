@@ -1,7 +1,6 @@
-import React from "react";
 import { Reveal } from "../utils/Reveal";
 
-const Play: React.FC = () => {
+function Play() {
   return (
     <div className='playground-container'>
       <div className="play-title">
@@ -21,6 +20,6 @@ const Play: React.FC = () => {
       </Reveal>
     </div>
   );
-};
+}
 
 export default Play;
