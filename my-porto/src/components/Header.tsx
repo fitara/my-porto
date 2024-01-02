@@ -31,10 +31,6 @@ function Header() {
   }, [handleScroll]);
 
   useEffect(() => {
-    controls.start({ opacity: isScrolled ? 0.9 : 1 });
-  }, [isScrolled, controls]);
-
-  useEffect(() => {
     const beforeUnload = () => {
       window.scrollTo({ top: 0 });
     };
@@ -55,7 +51,11 @@ function Header() {
 
   return (
     <div>
-      <motion.header className='header' animate={controls}>
+      <motion.header
+        className={
+          `header ${isScrolled ? 'header-blur' : ''}`
+        }
+        animate={controls}>
         <Link to='/' className='header-title'>
           Fit<span>.</span>
         </Link>

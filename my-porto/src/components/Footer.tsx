@@ -81,7 +81,7 @@ function Footer() {
             }))
           }
           onMouseLeave={() => setPositions(resetWhatsapp())}
-          onClick={() => openLink("https://wa.me/081226336116")}
+          onClick={() => openLink("https://wa.me/6281226336116")}
           animate={positions.whatsapp}
         >
           <FaWhatsapp />

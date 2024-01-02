@@ -222,6 +222,17 @@
   z-index: 3;
 }
 
+.header-blur {
+  backdrop-filter: blur(0.5em);
+  background-color: rgba(70, 130, 180, 0.7);
+  transition: backdrop-filter 1s ease;
+}
+
+.header:not(.header-blur) {
+  backdrop-filter: none;
+  opacity: 1;
+}
+
 .header-title {
   display: inline-flex;
   align-items: center;
