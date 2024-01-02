@@ -2,7 +2,7 @@ import { Reveal } from "../utils/Reveal";
 
 function Play() {
   return (
-    <div className='playground-container'>
+    <section className='playground-container'>
       <div className="play-title">
         <Reveal>
           <h1>Playground Page.</h1>
@@ -18,7 +18,7 @@ function Play() {
           patience and support.
         </p>
       </Reveal>
-    </div>
+    </section>
   );
 }
 

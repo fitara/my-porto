@@ -218,7 +218,6 @@
   align-items: center;
   padding: 0.25em 4em;
   width: 100vw;
-  height: 10vh;
   z-index: 3;
 }
 
@@ -358,6 +357,7 @@
   border-radius: 1em;
   font-weight: bold;
   font-size: 1.25vw;
+  cursor: pointer;
   gap: 0.5em;
 }
 
@@ -436,6 +436,7 @@
 
 .about-icons {
   display: flex;
+  cursor: pointer;
   gap: 0.5em;
 }
 
@@ -853,6 +854,7 @@
 .footer-icons {
   display: flex;
   position: relative;
+  cursor: pointer;
   gap: 1.5em;
 }
 
@@ -898,5 +900,22 @@
   100% {
     opacity: 1;
     transform: rotate(-45deg) translate(8px, 8px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body > * {
+    display: none;
+  }
+
+  body::before {
+    content: "For a more engaging experience, please use a laptop.";
+    display: block;
+    font-size: 1em;
+    align-content: center;
+    text-align: center;
+    background-color: var(--primary-text-color);
+    color: var(--secondary-text-color);
+    padding: 2em;
   }
 }

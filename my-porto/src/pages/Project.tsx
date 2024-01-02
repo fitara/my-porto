@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Project() {
   return (
-    <div className="project-container">
+    <section className="project-container">
       <h1>My Code Canvas</h1>
       <h3>
         Step into the canvas of code, where I paint digital masterpieces through
@@ -66,7 +66,7 @@ function Project() {
           </div>
         </motion.div>
       ))}
-    </div>
+    </section>
   );
 }
 

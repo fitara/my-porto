@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
 import Transitions from "../utils/Transition";
@@ -12,38 +12,37 @@ function LandingPage() {
   const { updateUser } = useUser();
   const navigate = useNavigate();
 
-  const handleInput = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value;
-    const trimmedValue = value.trim();
-
-    setInput(
-      /^[A-Za-z\s]*[A-Za-z][A-Za-z\s]*$/
-        .test(trimmedValue)
-        ? trimmedValue
-        : ""
-    );
+  const handleChange =
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    setInput(value);
   };
 
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    if (e.key === "Enter" && input) {
+  const handleKeyDown =
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && input !== "") {
+      handleClick();
+    }
+  };
+
+  const handleClick = () => {
+    if (input !== "") {
       updateUser(input);
       navigate("/home");
     }
   };
 
   return (
-    <>
+    <section>
       <Background />
       <div className='lp-container'>
         <div className='introduction-wrapper'>
           <div className='introduction'>
             <h2>
               Hello, I'm&nbsp;
-              <Rubber text="Fitra" className="dark" />
+              <span className="dark">
+                <Rubber text="Fitra" />
+              </span>
             </h2>
             <Typewriter
               options={{
@@ -54,10 +53,7 @@ function LandingPage() {
               }}
             />
           </div>
-          <motion.h3
-            whileHover={{scale: 1.05}}
-            className='short-intro'
-          >
+          <motion.h3 whileHover={{ scale: 1.05 }} className='short-intro'>
             A passionate developer with a background in fullstack development.
             Currently, focused on creating engaging frontend user experiences.
           </motion.h3>
@@ -69,26 +65,27 @@ function LandingPage() {
           <input
             id='name'
             type='text'
+            name="name"
             placeholder='Insert your name'
             className='input-name'
-            autoComplete='false'
             spellCheck='false'
-            onChange={handleInput}
+            autoComplete="false"
+            onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
           <button
             role='button'
-            className={`lp-button ${input ? "visible" : "hidden"}`}
-            onClick={() => navigate("/home")}
+            className={`lp-button ${input.trim() ? "visible" : "hidden"}`}
+            onClick={handleClick}
           >
-              <span className='lp-button-text'>Explore More</span>
-              <span className='lp-button-arrow'></span>
-              <span className='lp-button-arrow'></span>
+            <span className='lp-button-text'>Explore More</span>
+            <span className='lp-button-arrow'></span>
+            <span className='lp-button-arrow'></span>
           </button>
         </div>
       </div>
       <Transitions />
-    </>
+    </section>
   );
 }
 

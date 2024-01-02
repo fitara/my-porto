@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-// import Background from "./Background";
+import Background from "./Background";
 import { Outlet } from "react-router-dom";
 import {
   motion,
@@ -24,7 +24,7 @@ function Layout() {
         style={{ scaleX }} />
       <div className="main-content">
         <Outlet />
-        {/* <Background /> */}
+        <Background />
       </div>
       <Footer />
     </div>

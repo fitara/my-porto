@@ -1,3 +1,4 @@
+// UserContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface UserContextProps {
@@ -12,18 +13,17 @@ interface UserProviderProps {
 const UserContext = createContext<UserContextProps | undefined>(undefined);
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-    const [userName, setUserName] = useState<string>(() => {
-        const storedName = localStorage.getItem('userName')
-        return storedName || "";
-    });
+  const [userName, setUserName] = useState<string>("");
 
-    useEffect(() => {
-        localStorage.setItem('userName', userName);
-    }, [userName]);
+  useEffect(() => {
+    try {
+      localStorage.setItem('userName', userName);
+    } catch (error) {
+      console.error('Error storing userName in localStorage:', error);
+    }
+  }, [userName]);
 
-  const updateUser = (name: string) => {
-    setUserName(name);
-  };
+  const updateUser = (name: string) => setUserName(name);
 
   return (
     <UserContext.Provider value={{ userName, updateUser }}>
