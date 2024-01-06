@@ -1,13 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/f.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fitra | Website</title>
+
+    <meta property="og:title" content="Fitra | Website" />
+    <meta property="og:description" content="Explore Fitra's innovative web React portfolio." />
+    <meta property="og:image" content="/images/porto.png" />
+    <meta property="og:url" content="https://porto-fitra.netlify.app/" />
   </head>
   <body>
     <div id="root"></div>
+    <dialog id="popup" open>
+      <div id="popup-content">
+        <p>
+          For a more engaging experience, please use a laptop. Mobile version is
+          under development.
+        </p>
+        <button id="close" onclick="document.getElementById('popup').close()">
+          Close
+        </button>
+      </div>
+    </dialog>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -37,7 +37,7 @@ function Home() {
   
   const openLink = () => {
     const gDriveLink =
-      "https://drive.google.com/file/d/1fJriFWmGTArHrGlKkj6rssU1I4rY_fCz/view";
+      "https://drive.google.com/file/d/1hjdhDRlpBeklXW92fzeVbMSfjAAn_Prh/view?usp=sharing";
     window.open(gDriveLink, "_blank");
   };
 

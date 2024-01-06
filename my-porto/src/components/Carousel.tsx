@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import { Reveal } from "../utils/Reveal";
@@ -38,6 +39,22 @@ const marquee2Names = [
 ];
 
 function Carousel() {
+  const [speed, setSpeed] = useState(100);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newSpeed = window.innerWidth < 600 ? 50 : 100;
+      setSpeed(newSpeed);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className='carousel-container'>
       <div className='carousel-title'>
@@ -58,7 +75,7 @@ function Carousel() {
         gradient={true}
         gradientColor='whitesmoke'
         pauseOnHover={true}
-        speed={100}
+        speed={speed}
       >
         {marquee1Names.map((name, index) => (
           <motion.div
@@ -89,7 +106,7 @@ function Carousel() {
         gradientColor='whitesmoke'
         pauseOnHover={true}
         direction='right'
-        speed={100}
+        speed={speed}
       >
         {marquee2Names.map((name, index) => (
           <motion.div

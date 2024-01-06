@@ -63,9 +63,8 @@ function LandingPage() {
             Before we begin, please let me know your name.
           </h4>
           <input
-            id='name'
+            // id='name'
             type='text'
-            name="name"
             placeholder='Insert your name'
             className='input-name'
             spellCheck='false'
