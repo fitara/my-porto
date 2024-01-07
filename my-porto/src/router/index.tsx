@@ -1,13 +1,13 @@
 // routes.tsx
 
 import { RouteObject } from 'react-router-dom';
-import LandingPage from '../pages/LandingPage'; // Assuming LandingPage is a default export
+import LandingPage from '../pages/LandingPage';
 import Layout from '../components/Layout';
-import Home from '../pages/Home'; // Assuming Home is a default export
-import About from '../pages/About'; // Assuming About is a default export
+import Home from '../pages/Home';
+import About from '../pages/About';
 import Project from '../pages/Project';
-import Play from '../pages/Play'; // Assuming Play is a default export
 import Unavailable from '../components/Unavailable';
+import Play from '../pages/Play';
 
 const routes: RouteObject[] = [
   {

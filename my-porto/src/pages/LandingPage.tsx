@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Background from "../components/Background";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
 import Transitions from "../utils/Transition";
-import Background from "../components/Background";
-import Rubber from "../utils/RubberEffect";
 import Typewriter from "typewriter-effect";
+import Rubber from "../utils/RubberEffect";
 import { motion } from "framer-motion";
+import PopUp from "../components/PopUp";
 
 function LandingPage() {
   const [input, setInput] = useState<string>("");
+  const [showPopUp, setShowPopUp] = useState(true);
   const { updateUser } = useUser();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowPopUp(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   const handleChange =
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +42,10 @@ function LandingPage() {
       updateUser(input);
       navigate("/home");
     }
+  };
+
+  const closePopup = () => {
+    setShowPopUp(false);
   };
 
   return (
@@ -63,7 +79,6 @@ function LandingPage() {
             Before we begin, please let me know your name.
           </h4>
           <input
-            // id='name'
             type='text'
             placeholder='Insert your name'
             className='input-name'
@@ -83,6 +98,7 @@ function LandingPage() {
           </button>
         </div>
       </div>
+      {showPopUp && <PopUp onClose={closePopup} />}
       <Transitions />
     </section>
   );

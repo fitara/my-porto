@@ -705,7 +705,7 @@
   display: inline-flex;
   justify-content: flex-end;
   background-color: rgba(75, 75, 75, 0.4);
-  border-radius: 2em;
+  border-radius: 1em;
   padding: 2em;
   width: 45vw;
 }
@@ -713,7 +713,6 @@
 .project-card.odd .project-image {
   justify-content: flex-start;
   margin-left: auto;
-  margin-right: 0;
 }
 
 .project-image img {
@@ -932,30 +931,6 @@
   animation-duration: 1s;
 }
 
-#popup {
-  display: none;
-  position: fixed;
-  background-color: rgba(75, 75, 75, 0.6);
-  color: var(--secondary-text-color);
-  backdrop-filter: blur(0.5em);
-  border: none;
-  top: 40%;
-}
-
-#popup-content {
-  text-align: center;
-  padding: 20px;
-}
-
-#close {
-  border: none;
-  margin-top: 1em;
-  padding: 0.25em 2em;
-  background-color: var(--primary-color);
-  color: var(--secondary-text-color);
-  cursor: pointer;
-}
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .lp-container {
     width: 70%;
@@ -964,10 +939,6 @@
   .introduction,
   .header-title {
     font-size: 3vw;
-  }
-  
-  .short-intro {
-    font-size: 1.75vw;
   }
   
   .lp-button-text,
@@ -979,6 +950,8 @@
 
   .home-container,
   .about-container,
+  .project-container,
+  .unavailable-container,
   .playground-container {
     padding: 4em 2em;
   }
@@ -993,7 +966,6 @@
   }
 
   .description-text {
-    font-size: 1.75vw;
     padding: 0 0.5em;
   }
 
@@ -1007,12 +979,67 @@
   }
 
   .about-name .dot,
-  .about-person h2 {
+  .about-person h2,
+  .project-description h2 {
     font-size: 3vw;
     margin: 0;
   }
 
+  .project-card {
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 2em;
+    margin: 0;
+  }
+
+  .project-card.odd .project-image,
+  .project-card.even .project-image {
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+  }
+
+  .project-image img {
+    bottom: -1em;
+  }
+
+  .project-description {
+    text-align: left;
+    position: relative;
+    align-items: flex-start;
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 90%;
+    top: -6em;
+  }
+
+  .project-card.odd .project-description {
+    margin: 0 auto;
+  }
+
+  .project-detail p {
+    margin-bottom: 0.5em; 
+    padding: 0 0.5em;
+  }
+
+  .project-card.odd .tech-stack-wrapper {
+    align-self: flex-end;
+  }
+
+  .project-link {
+    align-self: flex-end;
+    font-size: 2vw;
+  }
+
+  .project-card.odd .project-link {
+    margin: 0;
+  }
+
   .play-title h1,
+  .project-container h1,
   .greeting-text {
     font-size: 5vw;
   }
@@ -1034,7 +1061,8 @@
     top: 3.5vw;
   }
 
-  .card-info {
+  .card-info,
+  .tech-stack-item {
     font-size: 1.5vw;
   }
 
@@ -1049,16 +1077,24 @@
   }
 
   .play-title h3,
+  .project-container h3,
   .introduction.home {
     font-size: 2.5vw;
     margin-bottom: 0.5em;
+  }
+
+  .project-container h3 {
+    margin-bottom: 2em !important;
   }
 
   .button-wrapper {
     margin-top: 0.75em;
   }
 
+  .short-intro,
   .tabs-wrapper,
+  .description-text,
+  .project-detail p,
   .button,
   .footer {
     font-size: 1.75vw;
@@ -1074,16 +1110,12 @@
   .header-title {
     font-size: 5vw;
   }
-
-  .short-intro {
-    font-size: 2.75vw;
-  }
   
   .lp-button-text,
   .instruction,
   .input-name,
   .input-name::placeholder {
-    font-size: 2.5vw;
+    font-size: 2.75vw;
   }
 
   .lp-button-arrow {
@@ -1098,15 +1130,14 @@
 
   .home-container {
     flex-direction: column-reverse;
-    padding: 6em 2em;
+    padding: 6em 1.5em;
   }
 
-  .about-container {
-    padding: 6em 2em;
-  }
-
+  .about-container,
+  .project-container,
+  .unavailable-container,
   .playground-container {
-    padding: 6em 2em;
+    padding: 6em 1.5em;
   }
 
   .blob-wrapper {
@@ -1118,54 +1149,133 @@
     width: 100%;
   }
 
-  .title-wrapper {
-    width: calc(100vw - 8em);
-  }
-
   .about-name {
     margin-bottom: 0.5em;
   }
 
   .about-person h1 {
     letter-spacing: 1px;
-    margin-left: 1.5em;
+    margin-left: 1.25em;
     font-size: 7vw;
   }
 
   .about-name .dot,
-  .about-person h2 {
-    font-size: 4vw;
+  .about-person h2,
+  .project-description h2 {
+    font-size: 3vw;
+    margin: 0;
+  }
+
+  .project-card {
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1em 2em;
+    margin: 0;
+  }
+
+  .project-card.odd .project-image,
+  .project-card.even .project-image {
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    padding: 1em;
+  }
+
+  .project-image img {
+    bottom: -1em;
+  }
+
+  .project-description {
+    text-align: left;
+    position: relative;
+    align-items: flex-start;
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 90%;
+    top: -4em;
+  }
+
+  .project-card.odd .project-description {
+    margin: 0 auto;
+  }
+
+  .project-detail p {
+    margin-bottom: 0.5em; 
+    padding: 0 0.5em;
+  }
+
+  .project-card.odd .tech-stack-wrapper {
+    align-self: flex-end;
+  }
+
+  .tech-stack-wrapper {
+    gap: 1em;
+  }
+
+  .tech-stack-item {
+    align-self: flex-end;
+    font-size: 2vw;
+  }
+
+  .project-link {
+    align-self: flex-end;
+  }
+
+  .project-card.odd .project-link {
     margin: 0;
   }
 
   .play-title h1,
+  .project-container h1,
+  .unavailable-container h1,
   .greeting-text {
-    font-size: 7vw;
+    font-size: 8vw;
   }
 
+  .short-intro,
   .carousel-title h3,
   .certificate-title h3,
+  .project-container h3,
   .play-title h3 {
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
 
+  .project-container h3 {
+    margin-bottom: 2em !important;
+  }
+
+  .carousel-title,
+  .certificate-title {
+    margin-bottom: 2em;
+  }
+
+  .carousel-title h1,
+  .certificate-title h1,
   .introduction.home {
-    font-size: 4vw;
+    font-size: 5vw;
+  }
+
+  .title-wrapper {
+    width: calc(100vw - 7em);
   }
   
   .about-description,
   .description-text,
-  .playground-container p {
-    font-size: 2.75vw;
+  .playground-container p,
+  .unavailable-container p {
+    font-size: 3.25vw;
     padding: 0;
+  }
+
+  .about-description {
+    margin: 0.5em 2.5em;
   }
 
   .about-link {
     padding: 1em 5em;
-  }
-
-  .carousel-title {
-    margin-bottom: 2em;
   }
 
   .svg-icon {
@@ -1175,11 +1285,7 @@
   }
 
   .text-overlay {
-    font-size: 1.5vw;
-  }
-
-  .certificate-title {
-    margin-bottom: 2em;
+    font-size: 2vw;
   }
 
   .rfm-marquee-container {
@@ -1191,13 +1297,17 @@
     padding: 1em;
   }
 
+  .card-wrapper::before {
+    height: 2vw;
+  }
+
   .card-image {
     max-width: 100%;
     top: 7vw;
   }
 
   .card-info {
-    font-size: 2.5vw;
+    font-size: 2.75vw;
   }
 
   .card-line {
@@ -1210,10 +1320,12 @@
   }
 
   .tabs-wrapper,
+  .project-detail p,
+  .project-link,
   .about-link,
   .button,
   .footer {
-    font-size: 2.25vw;
+    font-size: 2.5vw;
   }
 
   .footer {
@@ -1222,51 +1334,59 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-  #popup:is([open]) {
-    display: block;
-  }
-
   .lp-container {
-    width: 80%;
+    width: 90%;
   }
   
   .introduction,
   .header-title {
-    font-size: 5vw;
-  }
-  
-  .short-intro {
-    font-size: 2.75vw;
+    font-size: 6vw;
   }
   
   .lp-button-text,
   .instruction,
   .input-name,
-  .input-name::placeholder {
-    font-size: 2.5vw;
+  .button,
+  .input-name::placeholder,
+  .project-detail p {
+    font-size: 3vw;
   }
 
   .lp-button-arrow {
-    width: 1.25vw;
-    height: 1.25vw;
+    top: 40%;
+    width: 1.5vw;
+    height: 1.5vw;
     right: 12%;
   }
 
   .lp-button-arrow:nth-child(2) {
-    right: 18%;
+    right: 16%;
   }
 
   .home-container {
     flex-direction: column-reverse;
-    padding: 4em 2em;
+    padding: 4em 1em;
   }
 
   .about-container {
     padding: 6em 0;
   }
 
+  .project-container,
+  .unavailable-container,
   .playground-container {
-    padding: 6em 2em;
+    padding: 6em 1em;
+  }
+
+  .carousel-title h1,
+  .certificate-title h1,
+  .introduction.home {
+    font-size: 5vw;
+  }
+
+  .carousel-title, 
+  .certificate-title {
+    margin-bottom: 2em;
   }
 
   .blob-wrapper {
@@ -1288,44 +1408,110 @@
 
   .about-person h1 {
     letter-spacing: 1px;
-    margin-left: 1.5em;
-    font-size: 7vw;
+    margin-left: 1em;
+    font-size: 8vw;
   }
 
   .about-name .dot,
-  .about-person h2 {
-    font-size: 4vw;
+  .about-person h2,
+  .project-description h2 {
+    font-size: 5vw;
+    margin: 0;
+  }
+
+  .project-card {
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1em 0;
+    margin: 0;
+  }
+
+  .project-card.odd .project-image,
+  .project-card.even .project-image {
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    padding: 0.5em;
+  }
+
+  .project-image img {
+    bottom: -1em;
+  }
+
+  .project-description {
+    text-align: left;
+    position: relative;
+    align-items: flex-start;
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 4em;
+    border-bottom-right-radius: 4em;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 90%;
+    top: -4em;
+  }
+
+  .project-card.odd .project-description {
+    margin: 0 auto;
+  }
+
+  .project-detail p {
+    margin-bottom: 0.5em; 
+    padding: 0 0.5em;
+  }
+
+  .project-card.odd .tech-stack-wrapper {
+    align-self: flex-end;
+  }
+
+  .tech-stack-wrapper {
+    gap: 1em;
+  }
+
+  .tech-stack-item {
+    align-self: flex-end;
+    font-size: 2vw;
+  }
+
+  .project-link {
+    align-self: flex-end;
+  }
+
+  .project-card.odd .project-link {
     margin: 0;
   }
 
   .play-title h1,
+  .project-container h1,
+  .unavailable-container h1,
   .greeting-text {
-    font-size: 7vw;
+    font-size: 8vw;
   }
 
+  .card-info,
   .carousel-title h3,
   .certificate-title h3,
+  .project-container h3,
   .play-title h3 {
-    font-size: 2.5vw;
-  }
-
-  .introduction.home {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   
-  .about-description,
+  .short-intro,
+  .project-link,
   .description-text,
-  .playground-container p {
-    font-size: 2.75vw;
+  .about-description,
+  .playground-container p,
+  .unavailable-container p {
+    font-size: 3.5vw;
     padding: 0;
+  }
+
+  .about-description {
+    margin: 0.5em 2.5em;
   }
 
   .about-link {
     padding: 1em 5em;
-  }
-
-  .carousel-title {
-    margin-bottom: 2em;
   }
 
   .svg-icon {
@@ -1335,15 +1521,11 @@
   }
 
   .text-overlay {
-    font-size: 1.5vw;
-  }
-
-  .certificate-title {
-    margin-bottom: 2em;
+    font-size: 2vw;
   }
 
   .rfm-marquee-container {
-    min-height: 15vh;
+    min-height: 16vh;
   }
 
   .card-container {
@@ -1351,13 +1533,13 @@
     padding: 1em;
   }
 
+  .card-wrapper::before {
+    height: 1.5vw;
+  }
+
   .card-image {
     max-width: 100%;
     top: 7vw;
-  }
-
-  .card-info {
-    font-size: 2.75vw;
   }
 
   .card-line {
@@ -1369,15 +1551,47 @@
     margin-top: 1em;
   }
 
+  .tech-stack-item,
   .tabs-wrapper,
   .about-link,
-  .button,
   .footer {
-    font-size: 2.25vw;
+    font-size: 2.5vw;
   }
 
   .footer {
     bottom: 0;
   }
-}
 
+  .popup {
+    position: fixed;
+    background-color: rgba(75, 75, 75, 0.6);
+    color: var(--secondary-text-color);
+    backdrop-filter: blur(0.5em);
+    border: none;
+    width: 100%;
+    top: 30%;
+  }
+
+  .popup-content {
+    font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .popup-button {
+    display: flex;
+    align-self: center;
+    border: 0.2vw solid var(--background-color);
+    color: var(--secondary-color);
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+    width: fit-content;
+    font-weight: bold;
+    font-size: 3vw;
+    margin-top: 1em;
+    cursor: pointer;
+  }
+}
