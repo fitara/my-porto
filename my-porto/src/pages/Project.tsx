@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function Project() {
-  const [smallScreen, setSmallScreen] = useState(true);
+  const [smallScreen, setSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,12 +28,6 @@ function Project() {
         coding projects and creative endeavors.
       </h3>
       {projects.map((project, index) => {
-        const hover = {
-          x: smallScreen ? 0 : index % 2 === 0 ? -60 : 60,
-          translateY: smallScreen ? -20 : 0,
-          rotate: smallScreen ? 4 : 0,
-        };
-
         return (
           <motion.div
             className={`project-card ${index % 2 === 0 ? "even" : "odd"}`}
@@ -41,10 +35,14 @@ function Project() {
           >
             <div className="project-image">
               <motion.img
-                src={project.image}
-                alt={`Project ${index + 1}`}
-                whileHover={hover}
-              />
+              src={project.image}
+              alt={`Project ${index + 1}`}
+              whileHover={{
+                x: smallScreen ? 0 : index % 2 === 0 ? -60 : 60,
+                translateY: smallScreen ? -20 : 0,
+                rotate: smallScreen ? 4 : 0,
+              }}
+            />
             </div>
             <div className="project-description">
               <Reveal key={`project-title-${index}`}>

@@ -16,7 +16,7 @@ function LandingPage() {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setShowPopUp(true);
+      setShowPopUp(false);
     }, 5000);
 
     return () => {

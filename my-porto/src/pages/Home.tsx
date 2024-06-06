@@ -35,11 +35,11 @@ function Home() {
   const { handleMouse: handleMouseResume, reset: resetResume } =
     createSpringAnimation(resumeButtonRef, "resume");
   
-  const openLink = () => {
-    const gDriveLink =
-      "https://drive.google.com/file/d/1hjdhDRlpBeklXW92fzeVbMSfjAAn_Prh/view?usp=sharing";
-    window.open(gDriveLink, "_blank");
-  };
+  // const openLink = () => {
+  //   const gDriveLink =
+  //     "https://drive.google.com/file/d/1hjdhDRlpBeklXW92fzeVbMSfjAAn_Prh/view?usp=sharing";
+  //   window.open(gDriveLink, "_blank");
+  // };
 
   return (
     <section className='home-container'>
@@ -108,7 +108,7 @@ function Home() {
               }))
             }
             onMouseLeave={() => setPositions(resetResume())}
-            onClick={openLink}
+            // onClick={openLink}
             animate={positions.resume}
           >
             <FaFileDownload />

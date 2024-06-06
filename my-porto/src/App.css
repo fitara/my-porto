@@ -891,6 +891,8 @@
   color: var(--secondary-color);
 }
 
+.popup { display: none;}
+
 @keyframes slideIn {
   from {
     transform: translateX(50%) translateY(250%);
@@ -1563,13 +1565,14 @@
   }
 
   .popup {
+    display: block;
     position: fixed;
     background-color: rgba(75, 75, 75, 0.6);
     color: var(--secondary-text-color);
     backdrop-filter: blur(0.5em);
     border: none;
     width: 100%;
-    top: 30%;
+    top: 50%;
   }
 
   .popup-content {
